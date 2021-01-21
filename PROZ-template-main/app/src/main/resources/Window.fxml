@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.TextArea?>
+<BorderPane fx:controller="pw.proz.Controller"
+            xmlns:fx="http://javafx.com/fxml" >
+
+    <left> <!-- dispaly current info on Character and its current equipemnt and what it has in inventory -->
+        <VBox fx:id="leftBox" prefWidth="300" prefHeight="400 " alignment="CENTER" style="-fx-background-image: url('back.png')">
+            <Label fx:id="curInfo" prefWidth="240" prefHeight="240" style="-fx-background-image: url('label.png')">
+
+            </Label>
+
+
+
+        </VBox>
+
+
+
+
+    </left>
+
+
+    <top>  <!-- Currewnt initative order -->
+        <HBox prefHeight="120" alignment="CENTER" style="-fx-background-image: url('back_top.png')"  >
+            <Label fx:id="int0" prefHeight="120" prefWidth="120"  style="-fx-background-image: url('button_skill.jpg')"/>
+            <Label fx:id="int1" prefHeight="120" prefWidth="120" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Label fx:id="int2" prefHeight="120" prefWidth="120" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Label fx:id="int3" prefHeight="120" prefWidth="120" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Label fx:id="int4" prefHeight="120" prefWidth="120" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Label fx:id="int5"  prefHeight="120" prefWidth="120" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Label fx:id="int6" prefHeight="120" prefWidth="120" style="-fx-background-image: url('button_skill.jpg')"/>
+
+
+
+
+
+        </HBox>
+
+    </top>
+
+
+
+
+    <center> <!--Center window, contains only map and characters -->
+        <GridPane fx:id="stage"  style="-fx-background-image: url('map.png')" alignment="TOP_LEFT" prefHeight="50" prefWidth="50"
+                  onMouseMoved="#ShowCordinates" onMouseClicked="#TakeAction"> <!-- Characters added through Controleer and translated maybe it will work -->
+
+
+
+
+
+        </GridPane>
+
+
+    </center>
+
+
+
+
+    <right  > <!-- Info on Character when mouse moved over -->
+
+        <VBox prefWidth="300" prefHeight="800" alignment="CENTER" style="-fx-background-image: url('back.png')" > <!-- Divided into to parts - image and text field for info -->
+            <Label prefWidth="240" prefHeight="240" /> <!-- Here goes image? we will see -->
+            <Label fx:id="viewLog" prefWidth="240" prefHeight="340" style="-fx-background-image: url('label.png')"
+                   onMouseEntered="#HandleMouseEnter" /> <!-- Here goes info -->
+
+        </VBox>
+
+    </right>
+
+
+
+
+    <bottom> <!-- Character usable skills and equipment - skills are equipment so they are displayed here. Click one to use-->
+        <!-- ALSO contain End turn Button - click it to go to next creature in initaitve order -->
+        <GridPane alignment="BOTTOM_RIGHT" style="-fx-background-image: url('back_top.png')"  >
+            <padding>
+                <Insets right="10"/>
+            </padding>
+            <Button fx:id="skillOne" prefWidth="120" prefHeight="120"  GridPane.rowIndex="0"  GridPane.columnIndex="0" onMouseClicked="#ChangeActiveSkill"  onMouseEntered="#ShowSkillInfo1" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Button fx:id="skillTwo" prefWidth="120" prefHeight="120" GridPane.rowIndex="0" GridPane.columnIndex="1" onMouseClicked="#ChangeActiveSkill" onMouseEntered="#ShowSkillInfo2" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Button fx:id="skillThree" prefWidth="120" prefHeight="120" GridPane.rowIndex="0" GridPane.columnIndex="2" onMouseClicked="#ChangeActiveSkill" onMouseEntered="#ShowSkillInfo3" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Button fx:id="skillFour" prefWidth="120" prefHeight="120" GridPane.rowIndex="0" GridPane.columnIndex="3" onMouseClicked="#ChangeActiveSkill" onMouseEntered="#ShowSkillInfo4" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Button fx:id="skillFive" prefWidth="120" prefHeight="120" GridPane.rowIndex="0" GridPane.columnIndex="4" onMouseClicked="#ChangeActiveSkill" onMouseEntered="#ShowSkillInfo5" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Button fx:id="skillSix" prefWidth="120" prefHeight="120" GridPane.rowIndex="0" GridPane.columnIndex="5" onMouseClicked="#ChangeActiveSkill" onMouseEntered="#ShowSkillInfo6" style="-fx-background-image: url('button_skill.jpg')"/>
+            <Button disable="true" prefWidth="120" prefHeight="120" GridPane.rowIndex="0" GridPane.columnIndex="6"  visible="false" />
+            <Button disable="true" prefWidth="120" prefHeight="120" GridPane.rowIndex="0" GridPane.columnIndex="7" visible="false" />
+            <Button fx:id="nextTurn"  prefWidth="120" prefHeight="120" GridPane.rowIndex="0" GridPane.columnIndex="8" text="NEXT TURN "  textFill="silver"  onMouseClicked="#NextTurn" style="-fx-background-image: url('button_skill.jpg')" />
+
+        </GridPane>
+
+    </bottom>
+
+
+</BorderPane>
